@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <b>A charming engine.</b><br/>
+  <b>A Charming Engine.</b><br/>
   A simple and charming 2D game engine for Javascript.
 </p>
 
