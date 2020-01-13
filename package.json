@@ -1,0 +1,26 @@
+{
+  "name": "ace",
+  "version": "0.0.1",
+  "description": "A charming engine. A simple and charming 2D game engine for Javascript.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imbrn/ace.git"
+  },
+  "keywords": [
+    "game",
+    "engine"
+  ],
+  "author": "Bruno C. Couto (brunodev02221@gmail.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/imbrn/ace/issues"
+  },
+  "homepage": "https://github.com/imbrn/ace#readme"
+}
