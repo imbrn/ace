@@ -1,5 +1,3 @@
-<h1 align="center">ace</h1>
-
 <p align="center">
   <a href="./docs/ace.svg"><img src="./docs/ace.svg" alt="Ace" width="800"></a>
 </p>
