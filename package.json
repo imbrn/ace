@@ -2,17 +2,27 @@
   "name": "ace",
   "version": "0.0.1",
   "description": "A charming engine. A simple and charming 2D game engine for Javascript.",
-  "main": "index.js",
+  "main": "./build/cjs/index.js",
+  "module": "./build/esm/index.js",
+  "jsdelivr": "./build/ace.min.js",
+  "unpkg": "./build/ace.min.js",
+  "files": [
+    "build/",
+    "src/",
+    "docs/"
+  ],
   "directories": {
     "doc": "docs"
   },
   "scripts": {
+    "clean": "rimraf -r dist & rimraf -r build",
     "lint:eslint": "eslint --ext ts --ext js src/ examples/",
     "lint:eslint:fix": "npm run lint:eslint -- --fix",
     "lint:typescript": "tsc --noEmit -p .",
     "lint": "npm run lint:eslint & npm run lint:typescript",
     "lint:fix": "npm run lint:eslint:fix",
-    "start": "parcel examples/**/index.html"
+    "start": "parcel examples/**/index.html",
+    "build": "npm run clean & rollup -c"
   },
   "repository": {
     "type": "git",
@@ -34,11 +44,16 @@
     }
   },
   "devDependencies": {
+    "@rollup/plugin-multi-entry": "^3.0.0",
+    "@rollup/plugin-typescript": "^2.1.0",
     "@typescript-eslint/eslint-plugin": "^2.16.0",
     "@typescript-eslint/parser": "^2.16.0",
     "eslint": "^6.8.0",
     "husky": "^4.0.9",
     "parcel-bundler": "^1.12.4",
+    "rimraf": "^3.0.0",
+    "rollup": "^1.29.0",
+    "rollup-plugin-terser": "^5.2.0",
     "typescript": "^3.7.4"
   }
 }
