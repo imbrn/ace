@@ -24,7 +24,7 @@ class MovingBallScene extends Scene {
     this.speed = Math.random() * 2;
   }
 
-  update(elapsedTime: number) {
+  update(elapsedTime: number): void {
     if (this.x < 50) this.xDir = 1;
     if (this.x > this.resolution.width - 50) this.xDir = -1;
     if (this.y < 50) this.yDir = 1;
@@ -34,7 +34,7 @@ class MovingBallScene extends Scene {
     this.y += this.yDir * this.speed * elapsedTime;
   }
 
-  draw() {
+  draw(): void {
     this.canvas.fillStyle = "black";
     this.canvas.fill(rect({ x: 0, y: 0, width: this.resolution.width, height: this.resolution.height }));
     

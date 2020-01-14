@@ -7,6 +7,11 @@
     "doc": "docs"
   },
   "scripts": {
+    "lint:eslint": "eslint --ext ts --ext js src/ examples/",
+    "lint:eslint:fix": "npm run lint:eslint -- --fix",
+    "lint:typescript": "tsc --noEmit -p .",
+    "lint": "npm run lint:eslint & npm run lint:typescript",
+    "lint:fix": "npm run lint:eslint:fix",
     "start": "parcel examples/**/index.html"
   },
   "repository": {
@@ -24,6 +29,9 @@
   },
   "homepage": "https://github.com/imbrn/ace#readme",
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.16.0",
+    "@typescript-eslint/parser": "^2.16.0",
+    "eslint": "^6.8.0",
     "parcel-bundler": "^1.12.4",
     "typescript": "^3.7.4"
   }
