@@ -14,8 +14,12 @@ export abstract class Scene {
     // nothing here
   }
 
+  clearScreen(): void {
+    this.canvas.clearScreen();
+  }
+
   draw(): void {
-    this.canvas.clear();
+    // nothing here
   }
 
   onClick(event: CanvasMouseEvent): void {

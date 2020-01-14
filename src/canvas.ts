@@ -16,8 +16,8 @@ export class Canvas {
     this._context = context;
   }
 
-  clear(): void {
-    this._context.fillStyle = "black";
+  clearScreen(): void {
+    this._context.fillStyle = "white";
     this._context.fillRect(0, 0, this._htmlCanvas.width, this._htmlCanvas.height);
   }
 
