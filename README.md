@@ -25,7 +25,61 @@ That's it. It's perfect for the ones that are making simple games for fun or lea
 
 ## Installing
 
-_There is no method for installing this library yet. Soon this is going to be posted to npm and also to CDN servers :)_
+### Install it using npm
+
+```sh
+npm install ace.js
+```
+
+### Or using a CDN
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/ace.js/dist/ace.min.js"></script>
+```
+
+or
+
+```html
+<script src="https://unpkg.com/ace.js/dist/v8n.min.js"></script>
+```
+
+For other installation options, or if you want to start developing your own version, check the [building section](#building).
+
+## Basic example
+
+```js
+import { Game, Scene, rect } from "ace.js";
+
+// Implementing a game scene
+class MyGameScene extends Scene {
+  constructor() {
+    super({ width: 1600, height: 900 });
+  }
+  
+  udpate(elapsedTime) {
+    // update your game progress
+  }
+  
+  draw() {
+    // draw your game state this.canvas API
+    this.canvas.fillStyle = "black";
+    this.canvas.fill(rect({ x: 0, y: 0, width: 1600, height: 900 }));
+  }
+  
+  onClick(event) {
+    // capture user click events
+  }
+  
+  onKeydown(event) {
+    // capture user keydown events
+  }
+}
+
+// Creating game
+const game = new Game(document.querySelector("#my-canvas"));
+game.currentScene = new MyGameScene();
+game.start();
+```
 
 ## Building
 
