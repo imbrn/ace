@@ -21,4 +21,37 @@ That's it. It's perfect for the ones that are making simple games for fun or lea
 
 > Ace is in a very initial development stage. It's not ready for production yet.
 
-It's going to be awesome if you become part of this. Contributions are really really welcome! :)
+**It'll be awesome if you become part of this**. Contributions are really really welcome! Let's have fun! :)
+
+### Installing
+
+_There is no method for installing this library yet. Soon this is going to be posted to npm and also to CDN servers :)_
+
+### Building
+
+After cloning this repo, install the dependencies:
+
+```bash
+npm install
+```
+
+For building the library, run:
+
+```bash
+npm run build
+```
+
+_This is going to create a `build` folder with the generated Javascript files for CommonJS, UMD, AMD, ESM, browser and system modules._
+
+For running the examples, you can execute:
+
+```
+npm start
+```
+
+_This is going to start a local server with hot-reload enabled by default. Then, you can open your browser, access the address indicated in the console and add /example-name for accessing the example-name._
+
+### License
+
+[MIT License](https://opensource.org/licenses/MIT)
+
