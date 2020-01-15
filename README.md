@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="./docs/ace.svg"><img src="./docs/ace.svg" alt="Ace" width="800"></a>
+  <a href="./docs/ace.svg"><img src="./docs/ace.svg" alt="Ace" width="882"></a>
 </p>
 
 <p align="center">
