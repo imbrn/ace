@@ -1,6 +1,4 @@
-import { Game, Scene } from "../../src";
-import { rect } from "../../src/rectangle";
-import { circle } from "../../src/circle";
+import { Game, Scene, rect, circle } from "../../src";
 
 const canvasElement = document.querySelector("#canvas") as HTMLCanvasElement;
 if (!canvasElement) {

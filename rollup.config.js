@@ -1,104 +1,50 @@
 import typescript from "@rollup/plugin-typescript";
-import multi from "@rollup/plugin-multi-entry";
 import { terser } from "rollup-plugin-terser";
 
-const input = [
-  "./src/index.ts",
-  "./src/keyboard.ts",
-  "./src/mouse.ts",
-  "./src/circle.ts",
-  "./src/rectangle.ts",
-];
-
+const input = "./src/index.ts";
 const basePlugins = [ typescript() ];
+const outputFolder = "dist";
+const name = "ace";
 
 module.exports = [
   {
     input,
-    output: [
-      {
-        dir: "build/cjs",
-        entryFileNames: "[name].js",
-        format: "cjs",
-      },
-    ],
+    output: { file: `${outputFolder}/${name}.cjs.js`, format: "cjs" },
     plugins: basePlugins,
   },
   {
     input,
-    output: [
-      {
-        dir: "build/esm",
-        entryFileNames: "[name].js",
-        format: "esm",
-      },
-    ],
+    output: { file: `${outputFolder}/${name}.esm.js`, format: "esm" },
     plugins: basePlugins,
   },
   {
     input,
-    output: [
-      {
-        dir: "build/system",
-        entryFileNames: "[name].js",
-        format: "system",
-      },
-    ],
+    output: { file: `${outputFolder}/${name}.system.js`, format: "system" },
     plugins: basePlugins,
   },
   {
     input,
-    output: [
-      {
-        dir: "build/amd",
-        entryFileNames: "[name].js",
-        format: "amd",
-      },
-    ],
+    output: { file: `${outputFolder}/${name}.amd.js`, format: "amd" },
     plugins: basePlugins,
   },
   {
     input,
-    output: [
-      {
-        name: "ace",
-        file: "build/ace.browser.js",
-        format: "iife",
-      },
-    ],
-    plugins: [ ...basePlugins, multi() ],
+    output: { name, file: `${outputFolder}/${name}.browser.js`, format: "iife" },
+    plugins: basePlugins,
   },
   {
     input,
-    output: [
-      {
-        name: "ace",
-        file: "build/ace.browser.min.js",
-        format: "iife",
-      },
-    ],
-    plugins: [ ...basePlugins, multi(), terser() ],
+    output: { name, file: `${outputFolder}/${name}.browser.min.js`, format: "iife" },
+    plugins: [ ...basePlugins, terser() ],
   },
   {
     input,
-    output: [
-      {
-        name: "ace",
-        file: "build/ace.js",
-        format: "umd",
-      },
-    ],
-    plugins: [ ...basePlugins, multi() ],
+    output: { name, file: `${outputFolder}/${name}.js`, format: "umd" },
+    plugins: basePlugins,
   },
   {
     input,
-    output: [
-      {
-        name: "ace",
-        file: "build/ace.min.js",
-        format: "umd",
-      },
-    ],
-    plugins: [ ...basePlugins, multi(), terser() ],
+    output: { name, file: `${outputFolder}/${name}.min.js`, format: "umd" },
+    plugins: [ ...basePlugins, terser() ],
   },
 ];
