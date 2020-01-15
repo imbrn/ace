@@ -1,5 +1,5 @@
 {
-  "name": "ace",
+  "name": "ace.js",
   "version": "0.0.1",
   "description": "A charming engine. A simple and charming 2D game engine for Javascript.",
   "main": "./dist/ace.cjs.js",
@@ -7,7 +7,7 @@
   "jsdelivr": "./dist/ace.browser.min.js",
   "unpkg": "./dist/ace.browser.min.js",
   "files": [
-    "build/",
+    "dist/",
     "src/",
     "docs/"
   ],
