@@ -7,7 +7,7 @@
   A simple and charming 2D game engine for Javascript.
 </p>
 
-### What is it?
+## What is it?
 
 Ace is designed to be a really small and lighweight engine for 2D games.
 
@@ -17,17 +17,17 @@ Ace is designed to be a really small and lighweight engine for 2D games.
 
 That's it. It's perfect for the ones that are making simple games for fun or learning. If your intention is to making advanced and powerful games, there are a lot of better options outside there.
 
-### Development stage
+## Development stage
 
 > Ace is in a very initial development stage. It's not ready for production yet.
 
 **It'll be awesome if you become part of this**. Contributions are really really welcome! Let's have fun! :)
 
-### Installing
+## Installing
 
 _There is no method for installing this library yet. Soon this is going to be posted to npm and also to CDN servers :)_
 
-### Building
+## Building
 
 After cloning this repo, install the dependencies:
 
@@ -51,7 +51,7 @@ npm start
 
 _This is going to start a local server with hot-reload enabled by default. Then, you can open your browser, access the address indicated in the console and add /example-name for accessing the example-name._
 
-### License
+## License
 
 [MIT License](https://opensource.org/licenses/MIT)
 
