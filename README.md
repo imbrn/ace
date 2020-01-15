@@ -25,13 +25,19 @@ That's it. It's perfect for the ones that are making simple games for fun or lea
 
 ## Installing
 
-### Install it using npm
+### Install it using npm (or yarn)
 
 ```sh
 npm install ace.js
 ```
 
-### Or using a CDN
+_or_
+
+```sh
+yarn add ace.js
+```
+
+### Install it using a CDN
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/ace.js/dist/ace.min.js"></script>
@@ -40,7 +46,7 @@ npm install ace.js
 _or_
 
 ```html
-<script src="https://unpkg.com/ace.js/dist/v8n.min.js"></script>
+<script src="https://unpkg.com/ace.js/dist/ace.min.js"></script>
 ```
 
 > For other installation options, or if you want to start developing your own version, check the [building section](#building).
