@@ -22,6 +22,7 @@
     "lint": "npm run lint:eslint & npm run lint:typescript",
     "lint:fix": "npm run lint:eslint:fix",
     "start": "parcel examples/**/index.html",
+    "test": "echo 'No tests yet'",
     "build": "npm run clean & rollup -c"
   },
   "repository": {
