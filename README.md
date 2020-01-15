@@ -37,13 +37,13 @@ npm install ace.js
 <script src="https://cdn.jsdelivr.net/npm/ace.js/dist/ace.min.js"></script>
 ```
 
-or
+_or_
 
 ```html
 <script src="https://unpkg.com/ace.js/dist/v8n.min.js"></script>
 ```
 
-For other installation options, or if you want to start developing your own version, check the [building section](#building).
+> For other installation options, or if you want to start developing your own version, check the [building section](#building).
 
 ## Basic example
 
