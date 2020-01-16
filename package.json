@@ -1,5 +1,5 @@
 {
-  "name": "ace-js",
+  "name": "@imbrn/ace",
   "version": "0.0.1",
   "description": "A charming engine. A simple and charming 2D game engine for Javascript.",
   "main": "./dist/ace.cjs.js",
