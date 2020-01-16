@@ -23,7 +23,8 @@
     "lint:fix": "npm run lint:eslint:fix",
     "start": "parcel examples/**/index.html",
     "test": "echo 'No tests yet'",
-    "build": "npm run test & npm run clean & rollup -c"
+    "build": "npm run test & npm run clean & rollup -c",
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
