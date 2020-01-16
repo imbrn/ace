@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-## [0.0.1] - 2020-01-15
+## [v0.0.1] - 2020-01-15
 
 ### Added
 
@@ -17,3 +17,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Mouse click event;
 - Ready to use HTML Canvas compatible API;
 - Simple game loop;
+
+[unreleased]: https://github.com/imbrn/ace/compare/v0.0.1...HEAD
+[v0.0.1]: https://github.com/imbrn/v8n/compare/v0.0.0...v0.0.1
