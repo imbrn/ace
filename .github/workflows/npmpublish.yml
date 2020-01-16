@@ -1,4 +1,4 @@
-name: Node.js Package
+name: NPM Publish
 
 on:
   release:
@@ -13,7 +13,9 @@ jobs:
         with:
           node-version: 12
       - run: npm ci
+      - run: npm run lint
       - run: npm test
+      - run: npm run build
 
   publish-npm:
     needs: build
@@ -38,7 +40,7 @@ jobs:
         with:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
-          scope: '@your-github-username'
+          scope: '@imbrn'
       - run: npm ci
       - run: npm publish
         env:
