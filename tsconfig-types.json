@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["es2017", "dom"],
+    "strict": true,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "declarationDir": "dist/types"
+  },
+  "include": [
+    "src/**/*.ts"
+  ]
+}
