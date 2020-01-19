@@ -16,16 +16,16 @@
     "doc": "docs"
   },
   "scripts": {
-    "clean": "rimraf -r dist & rimraf -r build",
+    "clean": "rimraf -r dist && rimraf -r build",
     "lint:eslint": "eslint --ext ts --ext js src/ examples/",
     "lint:eslint:fix": "npm run lint:eslint -- --fix",
     "lint:typescript": "tsc --noEmit -p .",
-    "lint": "npm run lint:eslint & npm run lint:typescript",
+    "lint": "npm run lint:eslint && npm run lint:typescript",
     "lint:fix": "npm run lint:eslint:fix",
     "start": "parcel examples/**/index.html",
     "test": "echo 'No tests yet'",
     "build:types": "tsc --project tsconfig-types.json",
-    "build": "npm run clean & npm run build:types & rollup -c",
+    "build": "npm run clean && npm run build:types && rollup -c",
     "prepare": "npm run build"
   },
   "repository": {
