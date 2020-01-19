@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [v0.0.2] - 2020-01-19
+
 ### Added
 
 - Typescript types support for distributed files;
@@ -24,5 +26,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Ready to use HTML Canvas compatible API;
 - Simple game loop;
 
-[unreleased]: https://github.com/imbrn/ace/compare/v0.0.1...HEAD
+[unreleased]: https://github.com/imbrn/ace/compare/v0.0.2...HEAD
+[v0.0.2]: https://github.com/imbrn/ace/compare/v0.0.1...v0.0.2
 [v0.0.1]: https://github.com/imbrn/v8n/compare/v0.0.0...v0.0.1
