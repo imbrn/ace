@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "A charming engine. A simple and charming 2D game engine for Javascript.",
   "main": "./dist/ace.cjs.js",
+  "types": "./dist/types/index.d.ts",
   "module": "./dist/ace.esm.js",
   "jsdelivr": "./dist/ace.browser.min.js",
   "unpkg": "./dist/ace.browser.min.js",
@@ -23,7 +24,8 @@
     "lint:fix": "npm run lint:eslint:fix",
     "start": "parcel examples/**/index.html",
     "test": "echo 'No tests yet'",
-    "build": "npm run clean & rollup -c",
+    "build:types": "tsc --project tsconfig-types.json",
+    "build": "npm run clean & npm run build:types & rollup -c",
     "prepare": "npm run build"
   },
   "repository": {
