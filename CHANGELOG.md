@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Typescript types support for distributed files;
 - Update README logo for using PNG;
+- Add README badges: build status, version and size;
 
 ## [v0.0.1] - 2020-01-15
 
