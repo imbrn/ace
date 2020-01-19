@@ -7,6 +7,12 @@
   A simple and charming 2D game engine for Javascript.
 </p>
 
+<p align="center">
+  <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/imbrn/ace/Build">
+  <img alt="npm (scoped)" src="https://img.shields.io/npm/v/@imbrn/ace">
+  <img alt="npm bundle size (scoped)" src="https://img.shields.io/bundlephobia/minzip/@imbrn/ace">
+</p>
+
 ## What is it?
 
 Ace is designed to be a really small and lighweight engine for 2D games.
