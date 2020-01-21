@@ -1,7 +1,12 @@
 import { Canvas, CanvasDrawing } from "./canvas";
 
+type SpriteSource =
+  | HTMLImageElement
+  | SVGImageElement
+;
+
 interface SpriteConstructorArgs {
-  source: CanvasImageSource;
+  source: SpriteSource;
   x: number;
   y: number;
   width: number;
