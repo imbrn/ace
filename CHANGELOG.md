@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- Support for Sprites;
+
 ## [v0.0.3] - 2020-01-19
 
 ### Fixed
