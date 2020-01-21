@@ -1,7 +1,7 @@
 import { CoordinatesSystem } from "./coordinates-system";
 
-export abstract class CanvasDrawing {
-  abstract fill(canvas: Canvas): void;
+export interface CanvasDrawing {
+  fill(canvas: Canvas): void;
 }
 
 export class Canvas {
