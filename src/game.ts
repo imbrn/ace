@@ -31,6 +31,7 @@ export class Game implements GameLoopProcess {
 
   set currentScene(scene: Scene) {
     this._currentScene = scene;
+    this._currentScene.load();
     this._currentScene.canvas = new Canvas(this._htmlCanvas);
   }
 }

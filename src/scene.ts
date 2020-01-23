@@ -2,10 +2,12 @@ import { Canvas } from "./canvas";
 import { CoordinatesSystem } from "./coordinates-system";
 import { CanvasMouseEvent, CanvasMouseClickListener } from "./mouse";
 import { CanvasKeyboardEvent, CanvasKeydownEventListener } from "./keyboard";
+import { Loadable, LoadablesLoading, isLoadable } from "./loadable";
 import { Resolution } from "./resolution";
 
 export abstract class Scene {
   private _canvas: Canvas | undefined;
+  private _loadingLoadables: LoadablesLoading | undefined;
 
   constructor(private _resolution: Resolution) {
   }
@@ -32,6 +34,30 @@ export abstract class Scene {
 
   onKeydown(event: CanvasKeyboardEvent): void {
     // nothing here
+  }
+
+  load(): void {
+    const propertyDescriptors = Object.getOwnPropertyDescriptors(this);
+    const loadables = Object.values(propertyDescriptors)
+      .map(property => property.value)
+      .filter(isLoadable);
+    this._loadingLoadables = new LoadablesLoading(loadables);
+  }
+
+  get isLoadingInitialLoadables(): boolean {
+    return Boolean(this._loadingLoadables && this._loadingLoadables.isLoading);
+  }
+
+  get failedLoadingLoadables(): Array<[Loadable, Error]> {
+    return this._loadingLoadables
+      ? this._loadingLoadables.failedLoadingLoadables
+      : [];
+  }
+
+  get successfullyLoadedLoadables(): Array<Loadable> {
+    return this._loadingLoadables
+      ? this._loadingLoadables.successfullyLoadedLoadables
+      : [];
   }
 
   set canvas(canvas: Canvas) {
