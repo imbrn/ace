@@ -13,6 +13,13 @@
   <img alt="npm bundle size (scoped)" src="https://img.shields.io/bundlephobia/minzip/@imbrn/ace">
 </p>
 
+<p align="center">
+  <a href="#installing">Installing</a> |
+  <a href="#basic-example">Basic example</a> |
+  <a href="#building">Building</a> |
+  <a href="#license">License</a>
+</p>
+
 ## What is it?
 
 Ace is designed to be a really small and lighweight engine for 2D games.
