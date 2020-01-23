@@ -5,9 +5,9 @@ import { CanvasKeyboardEvent, CanvasKeydownEventListener } from "./keyboard";
 import { Loadable, LoadablesLoading, isLoadable } from "./loadable";
 import { Resolution } from "./resolution";
 
-export abstract class Scene {
+export abstract class Scene implements Loadable {
   private _canvas: Canvas | undefined;
-  private _loadingLoadables: LoadablesLoading | undefined;
+  private _loadingLoadables: LoadablesLoading = LoadablesLoading.finished();
 
   constructor(private _resolution: Resolution) {
   }
@@ -41,23 +41,21 @@ export abstract class Scene {
     const loadables = Object.values(propertyDescriptors)
       .map(property => property.value)
       .filter(isLoadable);
+
     this._loadingLoadables = new LoadablesLoading(loadables);
+    this._loadingLoadables.load();
   }
 
-  get isLoadingInitialLoadables(): boolean {
-    return Boolean(this._loadingLoadables && this._loadingLoadables.isLoading);
+  isLoading(): boolean {
+    return this._loadingLoadables.isLoading();
   }
 
-  get failedLoadingLoadables(): Array<[Loadable, Error]> {
-    return this._loadingLoadables
-      ? this._loadingLoadables.failedLoadingLoadables
-      : [];
+  hasFailedLoading(): boolean {
+    return this._loadingLoadables.hasFailedLoading();
   }
 
-  get successfullyLoadedLoadables(): Array<Loadable> {
-    return this._loadingLoadables
-      ? this._loadingLoadables.successfullyLoadedLoadables
-      : [];
+  get failedLoadingLoadables(): Array<Loadable> {
+    return this._loadingLoadables.failedLoadingLoadables;
   }
 
   set canvas(canvas: Canvas) {

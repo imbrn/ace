@@ -1,44 +1,45 @@
 export interface Loadable {
-  load(): Promise<Loadable>;
+  load(): void;
+  isLoading(): boolean;
+  hasFailedLoading(): boolean;
 }
 
 export function isLoadable(obj: any): obj is Loadable {
-  return "load" in obj && typeof obj.load === "function";
+  return Boolean(
+    obj
+    && ("load" in obj && typeof obj.load === "function")
+    && ("isLoading" in obj && typeof obj.isLoading === "function")
+    && ("hasFailedLoading" in obj && typeof obj.hasFailedLoading === "function"),
+  );
 }
 
-export class LoadablesLoading {
-  private _successfullyLoadedLoadables: Array<Loadable>;
-  private _failedLoadingLoadables: Array<[Loadable, Error]>;
+export class LoadablesLoading implements Loadable {
+  static finished(): LoadablesLoading {
+    return new FinishedLoadablesLoading();
+  }
 
   constructor(private _loadingLoadables: Array<Loadable>) {
-    this._successfullyLoadedLoadables = [];
-    this._failedLoadingLoadables = [];
-
-    this._loadingLoadables.forEach(loadable => {
-      loadable.load()
-        .then(loaded => this.onSuccessfullyLoadedLoadable(loaded))
-        .catch(cause => this.onFailLoadingLoadable(loadable, cause));
-    });
   }
 
-  private onSuccessfullyLoadedLoadable(loadable: Loadable): void {
-    this._successfullyLoadedLoadables.push(loadable);
+  load(): void {
+    this._loadingLoadables.forEach(loadable => loadable.load());
   }
 
-  private onFailLoadingLoadable(loadable: Loadable, cause: Error): void {
-    this._failedLoadingLoadables.push([loadable, cause]);
+  isLoading(): boolean {
+    return this._loadingLoadables.some(loadable => loadable.isLoading());
   }
 
-  get isLoading(): boolean {
-    const totalLoaded = this._successfullyLoadedLoadables.length + this._failedLoadingLoadables.length;
-    return totalLoaded < this._loadingLoadables.length;
+  hasFailedLoading(): boolean {
+    return this._loadingLoadables.some(loadable => this.hasFailedLoading());
   }
 
-  get failedLoadingLoadables(): Array<[Loadable, Error]> {
-    return this._failedLoadingLoadables;
+  get failedLoadingLoadables(): Array<Loadable> {
+    return this._loadingLoadables.filter(loadable => this.hasFailedLoading());
   }
+}
 
-  get successfullyLoadedLoadables(): Array<Loadable> {
-    return this._successfullyLoadedLoadables;
+class FinishedLoadablesLoading extends LoadablesLoading {
+  constructor() {
+    super([]);
   }
 }

@@ -15,16 +15,12 @@ class MyGameScene extends Scene {
 
   constructor() {
     super({ width: 1600, height: 900 });
-    this.loadableOne = new MockedLoadable(2000, "error");
-    this.loadableTwo = new MockedLoadable(4000);
+    this.loadableOne = new MockedLoadable(1000, "error");
+    this.loadableTwo = new MockedLoadable(2000);
   }
 
   draw(): void {
-    if (this.isLoadingInitialLoadables) {
-      this.canvas.fillStyle = "red";
-    } else {
-      this.canvas.fillStyle = "green";
-    }
+    this.canvas.fillStyle = "green";
     this.canvas.fill(rect({ x: 0, y: 0, width: 1600, height: 900 }));
   }
 }

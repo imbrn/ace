@@ -1,18 +1,30 @@
 import { Loadable } from "../src/loadable";
 
 export class MockedLoadable implements Loadable {
+  private _isLoading: boolean = true;
+  private _hasFailedLoading: boolean = false;
+
   constructor(private delay: number, private fail?: string) {
   }
 
-  load(): Promise<MockedLoadable> {
-    return new Promise((resolve: CallableFunction, reject: CallableFunction) => {
-      setTimeout(() => {
-        if (this.fail) {
-          reject(this.fail);
-        } else {
-          resolve(this);
-        }
-      }, this.delay);
-    });
+  load(): void {
+    this._isLoading = true;
+
+    setTimeout(() => {
+      if (this.fail) {
+        this._hasFailedLoading = false;
+      } else {
+        this._hasFailedLoading = true;
+      }
+      this._isLoading = false;
+    }, this.delay);
+  }
+
+  isLoading(): boolean {
+    return this._isLoading;
+  }
+
+  hasFailedLoading(): boolean {
+    return this._hasFailedLoading;
   }
 }
