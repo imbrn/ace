@@ -1,4 +1,4 @@
-import { Game, Scene, rect, circle } from "../../src";
+import { Game, Scene, Canvas, rect, circle } from "../../src";
 
 const canvasElement = document.querySelector("#canvas") as HTMLCanvasElement;
 if (!canvasElement) {
@@ -32,12 +32,12 @@ class MovingBallScene extends Scene {
     this.y += this.yDir * this.speed * elapsedTime;
   }
 
-  draw(): void {
-    this.canvas.fillStyle = "black";
-    this.canvas.fill(rect({ x: 0, y: 0, width: this.resolution.width, height: this.resolution.height }));
+  draw(canvas: Canvas): void {
+    canvas.fillStyle = "black";
+    canvas.fill(rect({ x: 0, y: 0, width: this.resolution.width, height: this.resolution.height }));
     
-    this.canvas.fillStyle = "green";
-    this.canvas.fill(circle({ x: this.x, y: this.y, radius: 50 }));
+    canvas.fillStyle = "green";
+    canvas.fill(circle({ x: this.x, y: this.y, radius: 50 }));
   }
 }
 

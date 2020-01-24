@@ -79,10 +79,10 @@ class MyGameScene extends Scene {
     // update your game progress
   }
   
-  draw() {
-    // draw your game state this.canvas API
-    this.canvas.fillStyle = "black";
-    this.canvas.fill(rect({ x: 0, y: 0, width: 1600, height: 900 }));
+  draw(canvas: Canvas) {
+    // draw your game state using canvas API
+    canvas.fillStyle = "black";
+    canvas.fill(rect({ x: 0, y: 0, width: 1600, height: 900 }));
   }
   
   onClick(event) {
