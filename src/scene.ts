@@ -15,7 +15,7 @@ export abstract class Scene {
   }
 
   clearScreen(): void {
-    this.canvas.clearScreen();
+    this.getCanvas().clearScreen();
   }
 
   draw(canvas: Canvas): void {
@@ -23,7 +23,7 @@ export abstract class Scene {
   }
 
   performDraw(): void {
-    this.draw(this.canvas);
+    this.draw(this.getCanvas());
   }
 
   onClick(event: CanvasMouseEvent): void {
@@ -37,11 +37,11 @@ export abstract class Scene {
   set canvas(canvas: Canvas) {
     this._canvas = canvas;
     this._canvas.coordinatesSystem = new CoordinatesSystem(this._canvas, this._resolution);
-    new CanvasMouseClickListener(this.canvas).on(this.onClick.bind(this));
-    new CanvasKeydownEventListener(this.canvas).on(this.onKeydown.bind(this));
+    new CanvasMouseClickListener(this.getCanvas()).on(this.onClick.bind(this));
+    new CanvasKeydownEventListener(this.getCanvas()).on(this.onKeydown.bind(this));
   }
 
-  get canvas(): Canvas {
+  private getCanvas(): Canvas {
     if (!this._canvas) {
       throw new Error("Canvas is no available");
     }

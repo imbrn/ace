@@ -80,6 +80,7 @@ export abstract class CanvasEventListener<E> {
   private _eventCallback: EventCallback<E> = () => {};
 
   constructor(private _canvas: Canvas, eventName: string, eventConstructor: EventConstructor<E>) {
+    // console.log(this.getCanvas());
     this._canvas.htmlCanvas.addEventListener(eventName, (event: Event) => {
       this._eventCallback(new eventConstructor(_canvas, event));
     });
