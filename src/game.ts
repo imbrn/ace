@@ -19,7 +19,7 @@ export class Game implements GameLoopProcess {
   processLoop(elapsedTime: number): void {
     this.currentScene.update(elapsedTime);
     this.currentScene.clearScreen();
-    this.currentScene.draw();
+    this.currentScene.performDraw();
   }
 
   get currentScene(): Scene {
