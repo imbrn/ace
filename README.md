@@ -80,7 +80,7 @@ class MyGameScene extends Scene {
   }
   
   draw(canvas: Canvas) {
-    // draw your game state this.canvas API
+    // draw your game state canvas API
     canvas.fillStyle = "black";
     canvas.fill(rect({ x: 0, y: 0, width: 1600, height: 900 }));
   }
