@@ -1,4 +1,8 @@
+import { Area } from "./area";
 import { CanvasDrawing, Canvas } from "./canvas";
+import { Model } from "./model";
+import { Position  } from "./position";
+import { Size } from "./size";
 
 export interface RectangleData {
   x: number;
@@ -7,16 +11,20 @@ export interface RectangleData {
   height: number;
 }
 
-export class Rectangle implements CanvasDrawing {
-  constructor(private _data: RectangleData) {
+export class Rectangle extends Model implements CanvasDrawing {
+  constructor(data: RectangleData) {
+    super(new Area(
+      new Position(data.x, data.y),
+      new Size(data.width, data.height),
+    ));
   }
 
   fill(canvas: Canvas): void {
     canvas.context.fillRect(
-      canvas.getVirtualX(this._data.x),
-      canvas.getVirtualY(this._data.y),
-      canvas.getVirtualWidth(this._data.width),
-      canvas.getVirtualHeight(this._data.height),
+      canvas.getVirtualX(this.area.position.x),
+      canvas.getVirtualY(this.area.position.y),
+      canvas.getVirtualWidth(this.area.size.width),
+      canvas.getVirtualHeight(this.area.size.height),
     );
   }
 }
