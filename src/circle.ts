@@ -1,4 +1,8 @@
+import { Area } from "./area";
 import { CanvasDrawing, Canvas } from "./canvas";
+import { Model } from "./model";
+import { Position } from "./position";
+import { Size } from "./size";
 
 export interface CircleData {
   x: number;
@@ -6,19 +10,32 @@ export interface CircleData {
   radius: number;
 }
 
-export class Circle implements CanvasDrawing {
-  constructor(private _data: CircleData) {
+export class Circle extends Model implements CanvasDrawing {
+  constructor(data: CircleData) {
+    super(
+      new Area(
+        new Position(data.x - data.radius, data.y - data.radius),
+        new Size(data.radius * 2, data.radius * 2),
+      ),
+    );
   }
 
   fill(canvas: Canvas): void {
     const ctx = canvas.context;
     ctx.beginPath();
     ctx.arc(
-      canvas.getVirtualX(this._data.x),
-      canvas.getVirtualY(this._data.y),
-      canvas.getVirtualWidth(this._data.radius),
-      0, 2 * Math.PI);
+      canvas.getVirtualX(this.area.center.x),
+      canvas.getVirtualY(this.area.center.y),
+      canvas.getVirtualWidth(this.radius),
+      0,
+      2 * Math.PI,
+    );
+    ctx.closePath();
     ctx.fill();
+  }
+
+  get radius(): number {
+    return this.area.size.width / 2;
   }
 }
 
