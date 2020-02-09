@@ -25,7 +25,6 @@ export abstract class MaterializableModel {
   }
 
   abstract get materials(): Array<Material>;
-
   abstract get fillPositions(): Array<number>;
   abstract get strokePositions(): Array<number>;
 }
@@ -41,14 +40,11 @@ export abstract class BaseMaterial implements Material {
   abstract createProgram(gl: WebGLRenderingContext, vertexShader: WebGLShader): WebGLProgram;
 
   initProgram(gl: WebGLRenderingContext, program: WebGLProgram): void {
-    // Nothing here. All configuration depends on composition of materials.
   }
 
   preDraw(gl: WebGLRenderingContext, program: WebGLProgram, model: MaterializableModel): void {
-    // Nothing here. All configuration depends on composition of materials.
   }
 
   draw(gl: WebGLRenderingContext, program: WebGLProgram): void {
-    // Nothing here. All configuration depends on composition of materials.
   }
 }
