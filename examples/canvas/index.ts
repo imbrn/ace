@@ -1,4 +1,6 @@
-import { Canvas, Color, Rectangle } from "../../src/new-canvas";
+import { Color } from "../../src/color";
+import { Canvas } from "../../src/new-canvas";
+import { Rectangle } from "../../src/shape";
 
 const canvas = new Canvas(document.querySelector("canvas"));
 
