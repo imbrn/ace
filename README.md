@@ -15,6 +15,7 @@
 
 <p align="center">
   <a href="#installing">Installing</a> |
+  <a href="#usage">Usage</a> |
   <a href="#basic-example">Basic example</a> |
   <a href="#building">Building</a> |
   <a href="#license">License</a>
@@ -64,6 +65,52 @@ _or_
 
 > For other installation options, or if you want to start developing your own version, check the [building section](#building).
 
+## Usage
+
+<details>
+<summary><b>It loads assets as magic!</b></summary>
+
+For you to use assets in your scene, you just need to define them in this scene constructor. That's it.
+
+```javascript
+class MyScene extends Scene {
+  constructor() {
+    this.myAsset = new MyAssetResource();
+    this.otherAsset = new MyOtherAssetResource();
+  }
+}
+```
+
+The engine is going to handle their loading as magic! When they're ready to use, your scene will be activated.
+
+```javascript
+class MyScene extends Scene {
+  update(elapsedTime) {
+    // assets are guaranteed to be loaded at this moment
+  }
+  
+  draw() {
+    // assets are guaranteed to be loaded at this moment
+  }
+}
+```
+
+During the assets loading, a loading scene will be displayed. There is a default loading scene (a black screen for now), but you can chage for any scene you want:
+
+```javascript
+class MyLoadingScene extends Scene {
+  draw() {
+    // draw a loading message
+  }
+}
+
+const game = new Game(canvas);
+game.loadingScene = new MyLoadingScene();
+game.start();
+```
+
+</details>
+
 ## Basic example
 
 ```js
@@ -73,6 +120,9 @@ import { Game, Scene, rect } from "ace.js";
 class MyGameScene extends Scene {
   constructor() {
     super({ width: 1600, height: 900 });
+    
+    // it loads assets as magic!!
+    this.myAsset = new MyWhateverAsset();
   }
   
   udpate(elapsedTime) {
